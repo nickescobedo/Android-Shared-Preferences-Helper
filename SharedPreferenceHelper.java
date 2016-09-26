@@ -10,7 +10,7 @@ public class SharedPreferenceHelper {
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(key, value);
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -22,7 +22,7 @@ public class SharedPreferenceHelper {
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt(key, value);
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -34,7 +34,7 @@ public class SharedPreferenceHelper {
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(key, value);
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -45,9 +45,7 @@ public class SharedPreferenceHelper {
      */
     static String getSharedPreferenceString(Context context, String key, String defValue){
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
-        String value = settings.getString(key, defValue);
-
-        return value;
+        return settings.getString(key, defValue);
     }
 
     /**
@@ -58,9 +56,7 @@ public class SharedPreferenceHelper {
      */
     static int getSharedPreferenceInt(Context context, String key, int defValue){
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
-        int value = settings.getInt(key, defValue);
-
-        return value;
+        return settings.getInt(key, defValue);
     }
 
     /**
@@ -71,8 +67,6 @@ public class SharedPreferenceHelper {
      */
     static boolean getSharedPreferenceBoolean(Context context, String key, boolean defValue){
         SharedPreferences settings = context.getSharedPreferences(PREF_FILE, 0);
-        boolean value = settings.getBoolean(key, defValue);
-
-        return value;
+        return settings.getBoolean(key, defValue);
     }
 }
